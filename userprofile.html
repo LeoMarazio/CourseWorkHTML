@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* CSS for styling */
+        body {
+            background: linear-gradient(135deg, rgb(173, 49, 255), rgb(47, 171, 209), rgb(24, 107, 231), rgb(213, 1, 255));
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            height: 100vh
+            font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #aaf;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            width: 200px; /* Set maximum width */
+            height: 300px; /* Allow the height to adjust accordingly */
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .profile-output {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 24px;
+            color: #aaf;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .progress-container {
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #555;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, rgb(173, 49, 255), rgb(47, 171, 209), rgb(24, 107, 231), rgb(213, 1, 255));
+            border-radius: 10px;
+            width: 0;
+            transition: width 0.5s ease-in-out;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #444;
+            color: #fff;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px #aaf;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="H:\cw html\logo.png" alt="Logo" class="logo">
+        <h1>User Profile</h1>
+        <fieldset>
+            <legend>Basic Profile</legend>
+            <div id="basic-info" class="profile-output"></div>
+        </fieldset>
+        <fieldset>
+            <legend>Additional Info</legend>
+            <div id="additional-info" class="profile-output"></div>
+        </fieldset>
+
+        <fieldset class="progress-container">
+            <legend>Progress</legend>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </fieldset>
+
+        <div id="prompt-container"></div>
+    </div>
+
+    <script>
+        // JavaScript code remains unchanged
+        const prompts = [
+            { category: "Personal Details", prompt: "Enter your name:", type: "text", weight: 22.5 },
+            { category: "Personal Details", prompt: "Enter your email:", type: "email", weight: 22.5 },
+            { category: "Personal Details", prompt: "Select your date of birth:", type: "date", weight: 22.5 },
+            { category: "Preferences", prompt: "Enter your favorite color:", type: "text", weight: 22.5 },
+            { category: "Preferences", prompt: "Enter your favorite food:", type: "text", weight: 22.5 },
+            { category: "Preferences", prompt: "Enter your favorite hobby:", type: "text", weight: 22.5 }
+        ];
+        let totalSteps = prompts.length;
+        let currentStep = 0;
+        let dobInputted = false;
+
+        function displayPrompt(promptObj) {
+            const promptElement = document.createElement('div');
+            promptElement.innerHTML = `<p>${promptObj.prompt}</p><input type="${promptObj.type}" id="input-${currentStep}" onchange="nextStep()" required>`;
+            document.getElementById('prompt-container').appendChild(promptElement);
+        }
+
+        function updateProgress() {
+            let currentWeight = 0;
+            for (let i = 0; i < currentStep; i++) {
+                currentWeight += prompts[i].weight;
+            }
+            if (dobInputted) {
+                currentWeight += prompts[2].weight;
+            }
+            const progress = (currentWeight / (totalSteps * 25)) * 100;
+            document.querySelector('.progress').style.width = Math.min(progress, 100) + '%';
+        }
+
+        function nextStep() {
+            if (currentStep === 2) {
+                const dobInput = document.getElementById('input-2');
+                if (dobInput.value.length === 10) {
+                    dobInputted = true;
+                }
+            }
+            currentStep++;
+            updateProgress();
+            if (currentStep < totalSteps) {
+                displayPrompt(prompts[currentStep]);
+            } else {
+                updateProfile();
+            }
+        }
+
+        function updateProfile() {
+            const name = document.getElementById('input-0').value;
+            const color = document.getElementById('input-3').value;
+            const food = document.getElementById('input-4').value;
+            const hobby = document.getElementById('input-5').value;
+
+            document.getElementById('basic-info').innerText = `Name: ${name}`;
+            document.getElementById('additional-info').innerText = `Color: ${color}\nFood: ${food}\nHobby: ${hobby}`;
+        }
+
+        displayPrompt(prompts[currentStep]);
+    </script>
+</body>
+</html>

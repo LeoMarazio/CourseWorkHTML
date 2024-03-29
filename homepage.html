@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meow Studying Effectively</title>
+<style>
+    /* Styles for home page */
+    .logo {
+        max-width: 200px; /* Set maximum width */
+        max-height: 100px; /* Set maximum height */
+        width: auto; /* Allow width to adjust based on maximum dimensions */
+        height: auto; /* Allow height to adjust based on maximum dimensions */
+        position: fixed; /* Keep the logo fixed */
+        top: 20px; /* Adjust top position */
+        left: 20px; /* Adjust left position */
+        z-index: 1000;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    nav {
+        background-color: #555;
+        color: #fff;
+        text-align:justify;
+        padding: 1px;
+        height: 225px;
+        width: 100%;
+        position: fixed; /* Keep the navbar fixed */
+        top: 0; /* Position it at the top */
+        left: 0; /* Align it to the left */
+        z-index: 999; /* Ensure it's above other elements */
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        transition: background-color 0.3s;
+        margin: 0 5px; /* Add margin between navigation items */
+        display: inline-block; /* Display as inline block to fit in one line */
+        width: 60px; /* Allow width to adjust based on content */
+    }
+
+    nav a:hover {
+        background-color: #777;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 150px auto 20px; /* Adjusted top margin to accommodate fixed nav and header */
+        padding: 20px;
+    }
+
+    fieldset {
+        border: 2px solid #555;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    legend {
+        font-weight: bold;
+        color: #555;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #45a049;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #555;
+        min-width: 160px;
+        z-index: 100;
+    }
+
+    .dropdown-content a {
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #777;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <fieldset>
+<header>
+    <h1>Welcome to Meow Studying Effectively</h1>
+    <p>A project to help students engage more with their studies and make student life easier</p>
+</header>
+</fieldset>
+<!-- Add the logo image -->
+<img src="H:\cw html\logo.png" alt="Logo" class="logo">
+
+<nav>
+    <div class="container">
+        <a href="H:\cw html\content.html" target="_blank">Home</a>
+        <a href="H:\cw html\members.html" target="_blank">Team Members</a>
+        <a href="#" target="_blank">Gallery</a>
+        <a href="#" target="_blank">Shop</a>
+        <a href="H:\cw html\meow.html" target="_blank">User Profile</a>
+        <a href="#" target="_blank">Sitemap</a>
+        <a href="#" target="_blank">Page Editors</a>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Content Page</a>
+            <div class="dropdown-content">
+                <a href="#" target="_blank">Option 1</a>
+                <a href="#" target="_blank">Option 2</a>
+                <a href="#" target="_blank">Option 3</a>
+                <a href="#" target="_blank">Option 4</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <fieldset>
+        <legend>About Us</legend>
+        <p>
+            Meow Studying Effectively is dedicated to revolutionizing the way students approach learning. We believe that studying doesn't have to be a chore; it can be fun, engaging, and effective. Our project aims to provide students with the tools, resources, and support they need to succeed academically while maintaining a healthy work-life balance.
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Our Mission</legend>
+        <p>
+            Our mission is to empower students to take control of their education and unleash their full potential. We strive to create innovative solutions that address the challenges students face in their academic journey, whether it's staying organized, managing time effectively, or finding motivation to study.
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Get Started</legend>
+        <p>
+            Ready to take your studying to the next level? Click the button below to explore our resources and start your journey towards academic success!
+        </p>
+        <a href="#" class="cta-button">Explore Resources</a>
+    </fieldset>
+</div>
+
+<footer>
+    <p>&copy; 2024 Meow Studying Effectively. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

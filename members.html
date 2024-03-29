@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meows Members</title>
+<style>
+    /* Style for the container */
+    .container {
+        text-align: center; /* Center align the content */
+        margin-top: 50px; /* Add margin top to create space for navigation bar */
+    }
+
+    /* Style for the heading */
+    .container h1 {
+        margin-bottom: 10px; /* Add some space below the heading */
+    }
+
+    .container h3 {
+        margin-bottom: 20px; /* Add some space below the subheading */
+    }
+
+    /* Style for the team members */
+    .team-container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        flex-wrap: wrap; /* Allow items to wrap */
+    }
+
+    /* Style for each team member */
+    .gif-container {
+        position: relative;
+        margin: 20px; /* Adjust margin for spacing between each container */
+        width: 256px; /* Set width for each container */
+    }
+    
+    .gif-container img {
+        width: 100%; /* Make images occupy the full width of the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .gif-container .gif,
+    .gif-container video {
+        display: none; /* Hide GIFs and videos by default */
+        width: 100%; /* Set width for GIFs and videos */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .gif-container:hover .gif,
+    .gif-container:hover video {
+        display: block; /* Show GIFs and videos on hover */
+    }
+    
+
+    /* Style for the text span */
+    .text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Occupy full width of the container */
+        background-color: white; /* Set background color */
+        padding: 10px; /* Add padding for better appearance */
+        border: 1px solid #ccc; /* Add border for better appearance */
+        transition: opacity 0.3s ease; /* Add transition effect for smooth appearance */
+        opacity: 0; /* Initially hide the text */
+    }
+
+    /* Show text on hover */
+    .gif-container:hover .text {
+        opacity: 1;
+    }
+
+    /* Set gradient background for body */
+    body {
+        background: linear-gradient(135deg, rgb(173, 49, 255), rgb(47, 171, 209), rgb(24, 107, 231), rgb(213, 1, 255));
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        height: 100vh /* Set height to viewport height */
+    }
+
+    /* Center the logo */
+    .logo-container {
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Main container for content -->
+<div class="container">
+    <!-- Heading -->
+    <h1>Meow, Studying Effectively</h1>
+    <h3>Meet Our Team</h3>
+    <!-- Container for logo -->
+    <div class="logo-container">
+        <!-- Logo image -->
+        <img id="logo" src="H:\cw html\logo.PNG" alt="Logo">
+    </div>
+    <br><br>
+    <!-- Container for team members -->
+    <div class="team-container">
+        <!-- Container for each team member -->
+        <div class="gif-container" onmouseenter="hideVideo('video1', 'image1')" onmouseleave="showImage('image1', 'video1')">
+            <!-- Image -->
+            <img id="image1" src="H:\cw html\ArthurGojo.png" alt="Image">
+            <!-- Video -->
+            <video id="video1" class="gif" src="H:\cw html\artur.mp4" loop muted autoplay style="display: none;"></video>
+            <!-- Text span -->
+            <span class="text">Artur Socolnic<br>Student 1<br>Optimistic and Positive </span>
+        </div>
+
+        <!-- Repeat the structure for other team members -->
+        <div class="gif-container" onmouseenter="hideImage('image2', 'gif2')" onmouseleave="showImage('image2', 'gif2')">
+            <!-- Image -->
+            <img id="image2" src="H:\cw html\soumashin.jpg" alt="Image">
+            <!-- GIF -->
+            <img id="gif2" class="gif" src="H:\cw html\soumashin.gif" alt="GIF">
+            <!-- Text span -->
+            <span class="text">Soumashik 2<br>Student 2<br>Brotha ewwww</span>
+        </div>
+
+        <div class="gif-container" onmouseenter="hideImage('image3', 'gif3')" onmouseleave="showImage('image3', 'gif3')">
+            <!-- Image -->
+            <img id="image3" src="H:\cw html\leo.PNG" alt="Image">
+            <!-- GIF -->
+            <img id="gif3" class="gif" src="H:\cw html\leo.gif" alt="GIF">
+            <!-- Text span -->
+            <span class="text">Florin-Leandru Caramalau<br>Student 3<br>Great in teamwork<br>Leadership<br>friendly attitude</span>
+        </div>
+
+        <div class="gif-container" onmouseenter="hideImage('image4', 'gif4')" onmouseleave="showImage('image4', 'gif4')">
+            <!-- Image -->
+            <img id="image4" src="H:\cw html\daniel.jpg" alt="Image">
+            <!-- GIF -->
+            <img id="gif4" class="gif" src="H:\cw html\DANIEL.gif" alt="GIF">
+            <!-- Text span -->
+            <span class="text">Daniel<br>Student 4<br>calm, slow & steady</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function hideVideo(videoId, imageId) {
+        var video = document.getElementById(videoId);
+        var image = document.getElementById(imageId);
+        video.style.display = 'block';
+        image.style.display = 'none';
+        video.play();
+    }
+
+    function showImage(imageId, videoId) {
+        var video = document.getElementById(videoId);
+        var image = document.getElementById(imageId);
+        video.style.display = 'none';
+        image.style.display = 'block';
+        video.pause();
+    }
+
+    function hideImage(imageId, gifId) {
+        document.getElementById(imageId).style.display = "none";
+        document.getElementById(gifId).style.display = "block";
+    }
+
+    function showImage(imageId, gifId) {
+        document.getElementById(imageId).style.display = "block";
+        document.getElementById(gifId).style.display = "none";
+    }
+</script>
+
+</body>
+</html>
